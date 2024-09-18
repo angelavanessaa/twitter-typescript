@@ -5,3 +5,5 @@ import { executeLike } from "./likeController";
 const router = express.Router();
 
 router.post('/', authMiddleware, executeLike);
+
+export default router;

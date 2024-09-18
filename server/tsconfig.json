@@ -1,0 +1,19 @@
+{
+  "compilerOptions": {
+    "noEmitOnError": false, // Allow output even if there are errors
+    "skipLibCheck": true, // Skip type checking of declaration files (.d.ts)
+    "strict": false, // Disable all strict type-checking options
+    "noImplicitAny": false, // Allow implicit 'any' type
+    "noImplicitThis": false, // Allow implicit 'any' type for 'this'
+    "strictNullChecks": false, // Disable strict null checks
+    "strictFunctionTypes": false, // Disable strict function type checking
+    "strictPropertyInitialization": false, // Disable strict property initialization checks
+    "esModuleInterop": true, // Ensure compatibility with CommonJS modules
+    "module": "commonjs", // Module system (commonjs, es6, etc.)
+    "target": "ES6", // ECMAScript target version
+    "outDir": "./dist", // Output directory for compiled files
+    "rootDir": "." // Root directory of source files
+  },
+  "include": ["**/*.ts"],
+  "exclude": ["node_modules"]
+}

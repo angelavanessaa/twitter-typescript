@@ -6,3 +6,5 @@ const router = express.Router();
 
 router.get("/", getTweets);
 router.post("/", authMiddleware, createTweet);
+
+export default router;

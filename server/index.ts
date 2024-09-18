@@ -1,8 +1,14 @@
 import express from "express";
 import config from "dotenv";
-import connectDB from "./config/db";
+import connectDB from "./config/db"
 import cors from "cors";
 import errorHandler from "./utils/errorHandler";
+
+import userRouter from './src/users/userRoutes';
+import tweetRouter from './src/tweets/tweetRoutes';
+import likeRouter from './src/likes/likeRoutes';
+import commentRouter from './src/comments/commentRoutes';
+import retweetRouter from './src/retweets/retweetRoutes';
 
 config.configDotenv();
 
@@ -17,14 +23,19 @@ app.use(cors({
     credentials: true
 }));
 
-app.use("/api/auth", require("./src/users/userRoutes"));
-app.use("/api/tweets", require("./src/tweets/tweetRoutes"));
-app.use("/api/likes", require("./src/likes/likeRoutes"));
-app.use("/api/comments", require("./src/comments/commentRoutes"));
-app.use("/api/retweets", require("./src/retweets/retweetRoutes"));
+// Health Check
+app.get("/health", (_, res) => {
+    res.send("Server is running");
+});
+
+app.use("/api/auth", userRouter);
+app.use("/api/tweets", tweetRouter);
+app.use("/api/likes", likeRouter);
+app.use("/api/comments", commentRouter);
+app.use("/api/retweets", retweetRouter);
 
 app.use(errorHandler);
 
 app.listen(process.env.PORT, () => {
-    console.log("Server is running on port 5000");
+    console.log(`Server is running on port ${process.env.PORT}`);
 })

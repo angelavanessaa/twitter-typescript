@@ -13,3 +13,5 @@ router.post(
     userSchema.signUp(res, req.body);
   }
 );
+
+export default router;
