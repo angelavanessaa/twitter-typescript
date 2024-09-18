@@ -19,6 +19,9 @@ app.use(cors({
 
 app.use("/api/auth", require("./src/users/userRoutes"));
 app.use("/api/tweets", require("./src/tweets/tweetRoutes"));
+app.use("/api/likes", require("./src/likes/likeRoutes"));
+app.use("/api/comments", require("./src/comments/commentRoutes"));
+app.use("/api/retweets", require("./src/retweets/retweetRoutes"));
 
 app.use(errorHandler);
 
